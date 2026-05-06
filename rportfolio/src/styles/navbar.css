@@ -1,0 +1,98 @@
+/* src/styles/navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 100;
+  animation: navFadeDown 0.6s ease both;
+}
+
+@keyframes navFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar-logo {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #555;
+  text-transform: uppercase;
+  cursor: default;
+  transition: color 0.2s;
+}
+
+.navbar-logo:hover {
+  color: var(--accent);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.navbar-links a {
+  color: #444;
+  text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--text-primary);
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
+}
+
+.navbar-links .navbar-gh {
+  color: var(--accent);
+}
+
+.navbar-links .navbar-gh::after {
+  background: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    padding: 14px 20px;
+  }
+
+  .navbar-links {
+    gap: 16px;
+    font-size: 9px;
+  }
+
+  .navbar-contact {
+    display: none;
+  }
+}
