@@ -16,16 +16,16 @@
 
 .footer-logo {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 4px;
-  color: #333;
+  color: #ffffff;
   text-transform: uppercase;
 }
 
 .footer-copy {
   font-family: var(--mono);
-  font-size: 9px;
-  color: #2a2a2a;
+  font-size: 12px;
+  color: #ffffff;
   letter-spacing: 1px;
 }
 
@@ -36,9 +36,9 @@
 
 .footer-link {
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 1.5px;
-  color: #444;
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.2s;
 }

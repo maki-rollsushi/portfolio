@@ -4,13 +4,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-  align-items: center;
+  align-items: start;
   padding: 56px 40px 52px;
   border-bottom: 1px solid var(--border);
 }
 
 /* ── Left column ───────────────────────────────── */
-
 .hero-left {
   display: flex;
   flex-direction: column;
@@ -18,13 +17,40 @@
   animation: heroFadeUp 0.7s ease 0.1s both;
 }
 
-.hero-label {
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 3px;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin-bottom: 14px;
+.hero-identity {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.hero-photo-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  transition:
+    border-color 0.35s,
+    transform 0.35s;
+}
+
+.hero-photo-wrap:hover {
+  border-color: var(--accent);
+  transform: scale(1.03);
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Move name inside identity row — remove its bottom margin */
+.hero-identity .hero-name {
+  margin-bottom: 0;
 }
 
 .hero-badge {
@@ -33,7 +59,7 @@
   background: #130f00;
   padding: 5px 12px;
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   color: var(--accent);
   letter-spacing: 1px;
   border-radius: 2px;
@@ -53,15 +79,15 @@
 
 .hero-sub {
   font-family: var(--mono);
-  font-size: 10px;
-  color: #555;
+  font-size: 12px;
+  color: var(--text-muted);
   letter-spacing: 1px;
   line-height: 2.2;
   margin-bottom: 28px;
 }
 
 .hero-sub a {
-  color: #555;
+  color: var(--text-muted);
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -79,7 +105,7 @@
 .hero-cta {
   display: inline-block;
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
   padding: 10px 20px;
@@ -110,47 +136,20 @@
 }
 
 /* ── Right column ──────────────────────────────── */
-
 .hero-right {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   gap: 24px;
   animation: heroFadeUp 0.7s ease 0.25s both;
-}
-
-.hero-photo-wrap {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid var(--border);
-  flex-shrink: 0;
-  transition:
-    border-color 0.35s,
-    transform 0.35s;
-}
-
-.hero-photo-wrap:hover {
-  border-color: var(--accent);
-  transform: scale(1.03);
-}
-
-.hero-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  padding-top: 4px;
 }
 
 .hero-bio {
   font-family: var(--mono);
-  font-size: 11px;
-  color: #555;
+  font-size: 12px;
+  color: var(--text-secondary);
   line-height: 1.85;
-  text-align: right;
   font-style: italic;
-  max-width: 280px;
   margin: 0;
 }
 
@@ -158,7 +157,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  justify-content: flex-end;
 }
 
 .hero-skill {
@@ -168,8 +166,8 @@
   border-radius: 2px;
   padding: 4px 10px;
   font-family: var(--mono);
-  font-size: 8px;
-  color: #555;
+  font-size: 10px;
+  color: var(--text-muted);
   letter-spacing: 1px;
   opacity: 0;
   animation: skillPop 0.35s ease forwards;
@@ -185,7 +183,6 @@
 }
 
 /* ── Animations ────────────────────────────────── */
-
 @keyframes heroFadeUp {
   from {
     opacity: 0;
@@ -209,34 +206,19 @@
 }
 
 /* ── Responsive ────────────────────────────────── */
-
 @media (max-width: 768px) {
   .hero-section {
     grid-template-columns: 1fr;
     padding: 40px 20px;
-    gap: 36px;
+    gap: 32px;
   }
 
   .hero-right {
-    align-items: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .hero-photo-wrap {
-    width: 90px;
-    height: 90px;
-  }
-
-  .hero-bio {
-    text-align: left;
-    flex: 1;
-    min-width: 160px;
+    padding-top: 0;
   }
 
   .hero-skills {
     justify-content: flex-start;
-    width: 100%;
   }
 
   .hero-name {

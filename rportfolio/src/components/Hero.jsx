@@ -16,15 +16,17 @@ export default function Hero() {
   return (
     <section className="hero-section">
       <div className="hero-left">
-        <div className="hero-label">Portfolio — 2025</div>
+        <div className="hero-identity">
+          <div className="hero-photo-wrap">
+            <img
+              src={markPhoto}
+              alt="Mark Lime Dela Cruz"
+              className="hero-photo"
+            />
+          </div>
+          <h1 className="hero-name">Mark L. Dela Cruz</h1>
+        </div>
         <div className="hero-badge">✦ DOST-SEI Merit Scholar</div>
-        <h1 className="hero-name">
-          Mark
-          <br />
-          Lime
-          <br />
-          Dela Cruz
-        </h1>
         <div className="hero-sub">
           BSCS · Bicol University · 3rd Year
           <br />
@@ -48,17 +50,13 @@ export default function Hero() {
       </div>
 
       <div className="hero-right">
-        <div className="hero-photo-wrap">
-          <img
-            src={markPhoto}
-            alt="Mark Lime Dela Cruz"
-            className="hero-photo"
-          />
-        </div>
         <p className="hero-bio">
-          CS student building things at the intersection of software and ideas.
-          I code with React, design in Figma, and play piano when I need to
-          think.
+          Highly motivated 3rd-Year Computer Science student and DOST-SEI Merit
+          Scholar with a strong foundation in software development and front-end
+          engineering. Proven ability to design and implement user-centric
+          interfaces using React, React Native, Python and JavaScript. Seeking
+          an internship position to leverage technical skills, UI/UX experience,
+          and leadership abilities in building innovative software solutions.
         </p>
         <div className="hero-skills">
           {SKILLS.map((skill, i) => (

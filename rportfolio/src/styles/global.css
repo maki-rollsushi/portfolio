@@ -1,5 +1,4 @@
 /* src/styles/global.css */
-/* Import in main.jsx instead of index.css */
 
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400&display=swap");
 
@@ -7,9 +6,18 @@
 :root {
   --bg: #0c0c0c;
   --bg-card: #111111;
-  --text-primary: #e8e2d9;
-  --text-muted: #666666;
-  --border: #1e1e1e;
+  --bg-hover: #161616;
+
+  /* Text — three clear levels */
+  --text-primary: #f0ebe3; /* headings, names            was #e8e2d9 */
+  --text-secondary: #b0a898; /* descriptions, body copy    NEW          */
+  --text-muted: #777770; /* labels, meta, timestamps   was #666666  */
+  --text-dim: #4a4a45; /* decorative / lowest level  NEW          */
+
+  /* Borders — slightly more visible */
+  --border: #282828; /* was #1e1e1e */
+  --border-dim: #1e1e1e; /* for subtle inner dividers  NEW          */
+
   --accent: #e8b96a;
   --accent-dim: #1a1500;
 
@@ -52,8 +60,8 @@ h4 {
 p {
   font-family: var(--mono);
   font-size: 12px;
-  color: var(--text-muted);
-  line-height: 1.7;
+  color: var(--text-secondary);
+  line-height: 1.75;
 }
 
 a {
@@ -75,7 +83,6 @@ a:hover {
 }
 
 /* ─── Shared section styles ──────────────────────────── */
-/* Reusable across all section CSS files */
 .section-header {
   display: flex;
   align-items: baseline;
@@ -85,17 +92,17 @@ a:hover {
 
 .section-num {
   font-family: var(--mono);
-  font-size: 10px;
-  color: #333;
+  font-size: 11px;
+  color: var(--text-dim);
   letter-spacing: 2px;
 }
 
 .section-title {
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #777;
+  color: var(--text-muted);
 }
 
 .accent-line {

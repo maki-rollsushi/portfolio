@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import "../styles/stats.css";
 
 const STATS = [
-  { value: 14, label: "Repositories", suffix: "" },
-  { value: 98, label: "Contributions", suffix: "" },
+  { value: 6, label: "Repositories", suffix: "" },
+  { value: 224, label: "Contributions", suffix: "" },
   { value: 400, label: "Students Served", suffix: "+" },
   { value: 60, label: "Volunteers Mentored", suffix: "+" },
 ];

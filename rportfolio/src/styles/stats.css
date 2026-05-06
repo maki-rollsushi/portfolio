@@ -35,9 +35,9 @@
 
 .stat-label {
   font-family: var(--mono);
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: 2px;
-  color: #333;
+  color: var(--text-muted);
   text-transform: uppercase;
   margin-top: 6px;
 }
