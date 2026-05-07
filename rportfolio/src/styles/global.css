@@ -8,15 +8,13 @@
   --bg-card: #111111;
   --bg-hover: #161616;
 
-  /* Text — three clear levels */
-  --text-primary: #f0ebe3; /* headings, names            was #e8e2d9 */
-  --text-secondary: #b0a898; /* descriptions, body copy    NEW          */
-  --text-muted: #777770; /* labels, meta, timestamps   was #666666  */
-  --text-dim: #4a4a45; /* decorative / lowest level  NEW          */
+  --text-primary: #f0ebe3;
+  --text-secondary: #b0a898;
+  --text-muted: #777770;
+  --text-dim: #4a4a45;
 
-  /* Borders — slightly more visible */
-  --border: #282828; /* was #1e1e1e */
-  --border-dim: #1e1e1e; /* for subtle inner dividers  NEW          */
+  --border: #282828;
+  --border-dim: #1e1e1e;
 
   --accent: #e8b96a;
   --accent-dim: #1a1500;
@@ -45,9 +43,11 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  /* Prevent horizontal overflow from cursor glow on mobile */
+  overflow-x: hidden;
 }
 
-/* ─── Typography defaults ────────────────────────────── */
+/* ─── Typography ─────────────────────────────────────── */
 h1,
 h2,
 h3,
@@ -68,7 +68,6 @@ a {
   color: var(--accent);
   text-decoration: none;
 }
-
 a:hover {
   opacity: 0.75;
 }
@@ -80,6 +79,8 @@ a:hover {
   border-left: 1px solid var(--border);
   border-right: 1px solid var(--border);
   min-height: 100vh;
+  /* Ensure root clips the glow at its edges */
+  position: relative;
 }
 
 /* ─── Shared section styles ──────────────────────────── */
@@ -112,6 +113,68 @@ a:hover {
   background: var(--accent);
   margin-right: 10px;
   vertical-align: middle;
+}
+
+/* ─── Cursor Glow ────────────────────────────────────── */
+/*
+  A large soft radial gradient orb that lazily follows the cursor.
+  Uses position:fixed so it tracks the viewport, not the scroll position.
+  Hidden on touch/pointer:none devices via media query.
+*/
+.cursor-glow {
+  position: fixed;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  /* Center the orb on the cursor coords set via JS */
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(232, 185, 106, 0.07) 0%,
+    rgba(232, 185, 106, 0.03) 35%,
+    transparent 65%
+  );
+  will-change: left, top;
+}
+
+/* Hide on touch devices — no cursor to follow */
+@media (hover: none), (pointer: coarse) {
+  .cursor-glow {
+    display: none;
+  }
+}
+
+/* ─── Scroll Reveal Utility ──────────────────────────── */
+/*
+  Generic reusable classes. Apply .reveal to any element,
+  then add .visible via IntersectionObserver (useScrollReveal hook).
+*/
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* ─── Utility ────────────────────────────────────────── */

@@ -39,6 +39,13 @@ export default function Hero() {
             View Work ↓
           </a>
           <a
+            href="/DELACRUZMark_Resume.pdf"
+            download
+            className="hero-cta ghost"
+          >
+            Resume ↓
+          </a>
+          <a
             href="https://github.com/maki-rollsushi"
             target="_blank"
             rel="noreferrer"
